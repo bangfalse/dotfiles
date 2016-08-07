@@ -24,4 +24,12 @@ else
 		doIt;
 	fi;
 fi;
+if [ "$(uname)" == "Darwin" ]; then
+	read -p "Do you want to apply macOS defaults? (y/n) " -n 1;
+	echo "";
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		echo "You will be prompted to put in your password for sudo."
+		source .macos;
+	fi;
+fi;
 unset doIt;
